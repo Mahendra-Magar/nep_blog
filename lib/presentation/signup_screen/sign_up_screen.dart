@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nep_blog/presentation/resources/strings_manager.dart';
 
 import '../resources/routes_manager.dart';
 
@@ -11,10 +12,10 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class SignUpScreenState extends State<SignUpScreen> {
-  final TextEditingController username = TextEditingController();
+  final TextEditingController fullname = TextEditingController();
   final TextEditingController email = TextEditingController();
   final TextEditingController phoneNo = TextEditingController();
-  final TextEditingController location = TextEditingController();
+  final TextEditingController address = TextEditingController();
   final TextEditingController password = TextEditingController();
   final TextEditingController confirmPassword = TextEditingController();
   bool _isObscure = true;
@@ -42,16 +43,17 @@ class SignUpScreenState extends State<SignUpScreen> {
               padding: const EdgeInsets.all(8.0),
               child: TextFormField(
                 decoration: InputDecoration(
-                  labelText: "Username",
-                  hintText: "Enter Username",
+                  prefixIcon: const Icon(Icons.mode),
+                  labelText: AppStrings.fullname,
+                  hintText: AppStrings.enterfullname,
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(15),
                   ),
                 ),
-                controller: username,
+                controller: fullname,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter username';
+                    return AppStrings.kFullNamelNullError;
                   }
                   return null;
                 },
@@ -61,16 +63,17 @@ class SignUpScreenState extends State<SignUpScreen> {
               padding: const EdgeInsets.all(8.0),
               child: TextFormField(
                 decoration: InputDecoration(
-                  labelText: "Email",
-                  hintText: "Enter Email",
+                  prefixIcon: const Icon(Icons.email),
+                  labelText: AppStrings.email,
+                  hintText: AppStrings.enterEmail,
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(15),
                   ),
                 ),
                 controller: email,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter Email';
+                    return AppStrings.kEmailNullError;
                   }
                   return null;
                 },
@@ -80,8 +83,9 @@ class SignUpScreenState extends State<SignUpScreen> {
               padding: const EdgeInsets.all(8.0),
               child: TextFormField(
                 decoration: InputDecoration(
-                  labelText: "Phone Number",
-                  hintText: "Enter Phone Number",
+                  prefixIcon: const Icon(Icons.phone),
+                  labelText: AppStrings.phoneNumber,
+                  hintText: AppStrings.enterPhoneNumber,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(20),
                   ),
@@ -89,7 +93,7 @@ class SignUpScreenState extends State<SignUpScreen> {
                 controller: phoneNo,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter Phone Number';
+                    return AppStrings.kPhoneNumberNullError;
                   }
                   return null;
                 },
@@ -99,16 +103,17 @@ class SignUpScreenState extends State<SignUpScreen> {
               padding: const EdgeInsets.all(8.0),
               child: TextFormField(
                 decoration: InputDecoration(
-                  labelText: "Location",
-                  hintText: "Enter Location",
+                  prefixIcon: const Icon(Icons.pin_drop),
+                  labelText: AppStrings.address,
+                  hintText: AppStrings.enterAddress,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(20),
                   ),
                 ),
-                controller: location,
+                controller: address,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter Location';
+                    return AppStrings.kAddressNullError;
                   }
                   return null;
                 },
@@ -119,10 +124,11 @@ class SignUpScreenState extends State<SignUpScreen> {
               child: TextFormField(
                 obscureText: _isObscure,
                 decoration: InputDecoration(
-                    labelText: "Password",
-                    hintText: "Enter Password",
+                    prefixIcon: const Icon(Icons.key),
+                    labelText: AppStrings.password,
+                    hintText: AppStrings.enterPassword,
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(15),
                     ),
                     suffixIcon: IconButton(
                       icon: Icon(
@@ -136,7 +142,7 @@ class SignUpScreenState extends State<SignUpScreen> {
                 controller: password,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter Password';
+                    return AppStrings.kPassNullError;
                   }
                   return null;
                 },
@@ -147,10 +153,11 @@ class SignUpScreenState extends State<SignUpScreen> {
               child: TextFormField(
                 obscureText: _isObscure,
                 decoration: InputDecoration(
-                    labelText: "Confirm Password",
-                    hintText: "Enter Password",
+                    prefixIcon: const Icon(Icons.key),
+                    labelText: AppStrings.confirmPassword,
+                    hintText: AppStrings.enterPassword,
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(15),
                     ),
                     suffixIcon: IconButton(
                       icon: Icon(
@@ -164,7 +171,7 @@ class SignUpScreenState extends State<SignUpScreen> {
                 controller: confirmPassword,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter Password';
+                    return AppStrings.kPassNullError;
                   }
                   return null;
                 },
@@ -173,7 +180,7 @@ class SignUpScreenState extends State<SignUpScreen> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: MaterialButton(
-                color: Colors.blue,
+                color: Colors.purple,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30),
                 ),
@@ -201,7 +208,7 @@ class SignUpScreenState extends State<SignUpScreen> {
                   onTap: () => Navigator.pushReplacementNamed(
                       context, Routes.signinScreen),
                   child: const SizedBox(
-                    child: Text("Already a member. Login ",
+                    child: Text("Already a member? Login ",
                         style: TextStyle(
                           color: Colors.black,
                         )),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:nep_blog/presentation/resources/color_manager.dart';
+import 'package:nep_blog/presentation/resources/strings_manager.dart';
 
 import '../resources/routes_manager.dart';
 
@@ -18,6 +20,7 @@ class _SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // backgroundColor: ColorManager.kSecondaryColor,
       body: Form(
         key: _formKey,
         child: ListView(
@@ -28,7 +31,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 child: SizedBox(
                   child: Icon(
                     Icons.person_rounded,
-                    size: 200,
+                    size: 150,
                   ),
                 ),
               ),
@@ -37,16 +40,17 @@ class _SignInScreenState extends State<SignInScreen> {
               padding: const EdgeInsets.all(8.0),
               child: TextFormField(
                 decoration: InputDecoration(
-                  labelText: "Username",
-                  hintText: "Enter Username",
+                  prefixIcon: const Icon(Icons.person),
+                  labelText: AppStrings.username,
+                  hintText: AppStrings.enterUsername,
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(15),
                   ),
                 ),
                 controller: username,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter username';
+                    return AppStrings.kNameNullError;
                   }
                   return null;
                 },
@@ -57,10 +61,11 @@ class _SignInScreenState extends State<SignInScreen> {
               child: TextFormField(
                 obscureText: _isObscure,
                 decoration: InputDecoration(
-                    labelText: "Password",
-                    hintText: "Enter Password",
+                    prefixIcon: const Icon(Icons.key),
+                    labelText: AppStrings.password,
+                    hintText: AppStrings.enterPassword,
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(15),
                     ),
                     suffixIcon: IconButton(
                       icon: Icon(
@@ -74,7 +79,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 controller: password,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter password';
+                    return AppStrings.kPassNullError;
                   }
                   return null;
                 },
@@ -94,7 +99,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   }
                 },
                 child: const Text(
-                  "Log In",
+                  AppStrings.signIn,
                   style: TextStyle(
                     color: Colors.white,
                   ),
@@ -105,7 +110,7 @@ class _SignInScreenState extends State<SignInScreen> {
               padding: EdgeInsets.all(10.0),
               child: Center(
                 child: SizedBox(
-                  child: Text("Forget Password",
+                  child: Text("Oops I forgot my password !",
                       style: TextStyle(
                         color: Colors.black,
                       )),
@@ -120,7 +125,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     Navigator.pushNamed(context, Routes.signupScreen);
                   },
                   child: const SizedBox(
-                    child: Text("Not a member. Sign up now ",
+                    child: Text("Not a member? Sign up",
                         style: TextStyle(
                           color: Colors.black,
                         )),
