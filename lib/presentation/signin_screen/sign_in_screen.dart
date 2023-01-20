@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:nep_blog/presentation/resources/assets_manager.dart';
 import 'package:nep_blog/presentation/resources/color_manager.dart';
 import 'package:nep_blog/presentation/resources/strings_manager.dart';
+import 'package:nep_blog/presentation/widgets/social_card.dart';
 
 import '../resources/routes_manager.dart';
+import '../resources/size_config.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({Key? key}) : super(key: key);
@@ -19,6 +22,7 @@ class _SignInScreenState extends State<SignInScreen> {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Scaffold(
       // backgroundColor: ColorManager.kSecondaryColor,
       body: Form(
@@ -88,7 +92,7 @@ class _SignInScreenState extends State<SignInScreen> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: MaterialButton(
-                color: Colors.blue,
+                color: ColorManager.kPrimaryColor,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30),
                 ),
@@ -132,7 +136,24 @@ class _SignInScreenState extends State<SignInScreen> {
                   ),
                 ),
               ),
-            )
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SocialCard(
+                  icon: ImageAssets.googleIcon,
+                  press: () {},
+                ),
+                SocialCard(
+                  icon: ImageAssets.faceBookIcon,
+                  press: () {},
+                ),
+                SocialCard(
+                  icon: ImageAssets.twitterIcon,
+                  press: () {},
+                ),
+              ],
+            ),
           ],
         ),
       ),

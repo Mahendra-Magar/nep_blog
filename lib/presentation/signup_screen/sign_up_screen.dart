@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nep_blog/presentation/resources/color_manager.dart';
 import 'package:nep_blog/presentation/resources/strings_manager.dart';
 
 import '../resources/routes_manager.dart';
@@ -180,7 +181,7 @@ class SignUpScreenState extends State<SignUpScreen> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: MaterialButton(
-                color: Colors.purple,
+                color: ColorManager.kPrimaryColor,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30),
                 ),
