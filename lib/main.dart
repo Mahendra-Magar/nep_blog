@@ -18,9 +18,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      // home: const HomePage(),
-      onGenerateRoute: RouteGenerator.getRoute,
-      initialRoute: Routes.signinScreen,
+      home: const SignInScreen(),
+      // onGenerateRoute: RouteGenerator.getRoute,
+      // initialRoute: Routes.signinScreen,
     );
   }
 }
