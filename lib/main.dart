@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:nep_blog/presentation/resources/routes_manager.dart';
-import 'package:nep_blog/presentation/signin_screen/sign_in_screen.dart';
+import 'package:nep_blog/presentation/home/home_page.dart';
+
+// import 'package:liam/presentiation/home/home_page.dart';
+// import 'package:liam/presentiation/resources/routes_manager.dart';
+
+// import 'package:liam/presentation/widget/status.dart';
+// import 'package:liam/presentation/widget/status_full.dart';
+// import 'package:liam/presentation/resources/routes_manager.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,13 +20,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Nep_Blog',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const SignInScreen(),
+      home: const MyHomePage(),
+
       // onGenerateRoute: RouteGenerator.getRoute,
-      // initialRoute: Routes.signinScreen,
+      // initialRoute: Routes.loginScreen,
     );
   }
 }
@@ -31,15 +38,10 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.grey[200],
-        appBar: AppBar(
-          title: const Text("Nep_Travel"),
-        ),
-        body: const SignInScreen());
-    // body: const SignupPage());
-    // body: const MyCustomForm());
-    // body: const FirstScreen());
-    // body: const Description());
-    // body: const DetailPage());
+      backgroundColor: Colors.grey[200],
+      appBar: AppBar(
+        title: const Text("Flutter app"),
+      ),
+    );
   }
 }

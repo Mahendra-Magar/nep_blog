@@ -1,4 +1,3 @@
-
 const String imagePath = "assets/images";
 const String iconPath = "assets/icons";
 
@@ -10,6 +9,7 @@ class ImageAssets {
   static const String introScreenImage3 = "$imagePath/splash_3.png";
 
   static const String imageBanner2 = "$imagePath/image_banner-2.png";
+  static const String heart = "$imagePath/heart.png";
   static const String imageBanner3 = "$imagePath/image_banner-3.png";
   static const String popularProduct1 = "$imagePath/popular_product-1.png";
   static const String popularProduct2 = "$imagePath/popular_product-2.png";
